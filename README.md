@@ -1,6 +1,6 @@
 # STATISTICAL-PHYSICS-LAB-COINS
 **PROJECT DESCRIPTION**  
-This project studies the statistical properties of a system of coins using teh microcanonical ensamble  
+This project studies the statistical properties of a system of coins using the microcanonical ensamble  
 
 
 **TEAM**  
