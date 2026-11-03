@@ -9,6 +9,7 @@ from pathlib import Path
 # matplotlib.pyplot is the plotting library; "plt" is the standard short name for it.
 import matplotlib.pyplot as plt
 
+
 # Now we define the function omega, which calculates the exact number of microstates with k heads among N coins.
 # This function returns an integer value representing the number of microstates.
 def omega(N: int, k: int) -> int:
@@ -80,4 +81,37 @@ def plot_distributions(Ns=(20, 50, 80, 100),
     Path(filename).parent.mkdir(parents=True, exist_ok=True)  # create folder if missing
     fig.savefig(filename)
     # Finally, we display the plot using plt.show(), which opens a window with the figure.
+    plt.show()
+
+# Next, we define the function probability, which returns P_k = Omega(N, k) / 2^N.
+# We work in log-space (ln P_k = ln Omega - N ln 2), so it never overflows, even for very large N.
+def probability(N: int, k: int) -> float:
+    """Probability P_k = Omega(N, k) / 2^N, computed in log-space (no overflow)."""
+    return math.exp(log_omega(N, k) - N * math.log(2))
+
+
+# For part (e) of the lab, we plot N * P_k versus the fraction of heads k/N for several values of N.
+# Using k/N puts every N on the same 0-1 scale, and multiplying by N makes the area under each curve equal to 1.
+# The plot shows how the peak at k/N = 0.5 gets narrower as N grows (relative width ~ 1/sqrt(N)).
+def plot_probabilities(Ns=(20, 100, 1000, 10000),
+                       filename="report/figures/probability_narrowing.pdf") -> None: # Same as before with plot_distributions.
+    """Plot N * P_k versus k/N for several N, showing the peak narrowing as N grows."""
+    fig, ax = plt.subplots(figsize=(7, 4.5)) # We create an empty figure and axes for the plot.
+    # Now we write a loop that builds two lists and draws a curve for each N.
+    # The first list x contains the fraction of heads k/N for every k from 0 to N.
+    # The second list y contains the probability density N * P_k for every k from 0 to N.
+    # In the second list, multiplying by N compensates for the spacing from x = k/N, so the area under each curve is 1.
+    for N in Ns:
+        x = [k / N for k in range(N + 1)]
+        y = [N * probability(N, k) for k in range(N + 1)]
+        ax.plot(x, y, label=f"N = {N}")
+    # We set the axis labels, legend, grid and margins to describe what is being shown.
+    # We create the folder if needed, save the figure as a PDF, and display it.
+    ax.set_xlabel("Fraction of heads, k/N")
+    ax.set_ylabel(r"Probability density, $N \cdot P_k$")
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout()
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(filename)
     plt.show()

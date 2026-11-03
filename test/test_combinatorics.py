@@ -4,7 +4,7 @@ import math
 
 import pytest
 
-from src.combinatorics import omega, log_omega, distribution
+from src.combinatorics import omega, log_omega, distribution, probability
 # We define the tests we're going to run. 
 # First we check the distribution for N = 7, which should match the known values from the report.
 def test_table_n7():
@@ -38,10 +38,16 @@ def test_impossible_k():
     assert omega(10, 11) == 0
     assert log_omega(10, 11) == float("-inf")
 
-# Finally, we check that the log-space result from log_omega matches the logarithm of the exact integer result from omega for various values of N and k.
+# In addition, we check that the log-space result from log_omega matches the logarithm of the exact integer result from omega for various values of N and k.
 # Floats from log_omega have tiny rounding errors, so we use pytest.approx to allow for a small relative error of 1e-10 in the comparison.
 @pytest.mark.parametrize("N", [10, 100, 1000])
 def test_log_omega_matches_exact(N):
     """log-space result agrees with the log of the exact integer."""
     for k in range(N + 1):
         assert log_omega(N, k) == pytest.approx(math.log(omega(N, k)), rel=1e-10)
+
+# Finally, we check that all probabilities for a given N add up to 1 (some number of heads always happens).
+@pytest.mark.parametrize("N", [1, 20, 100, 1000])
+def test_probabilities_sum_to_one(N):
+    """P_k summed over all k equals 1."""
+    assert sum(probability(N, k) for k in range(N + 1)) == pytest.approx(1.0)
