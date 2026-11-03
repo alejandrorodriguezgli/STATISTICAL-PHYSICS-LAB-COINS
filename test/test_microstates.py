@@ -1,6 +1,7 @@
 import pytest
 from src.microstates import(generate_microstates,count_heads,group_by_heads)
 
+""" First we check the functions for N=3 because is quicker"""
 def test_generate_microstates():
   result=generate_microstates(3)
 
@@ -14,7 +15,7 @@ def test_generate_microstates_invalid_N():
 
 def test_count_heads():
   assert count_heads("101")==2
-  assert count_Heads("111")==3
+  assert count_heads("111")==3
   assert count_heads("000")==0
 
 def test_count_heads_invalid_microstate():
@@ -23,12 +24,32 @@ def test_count_heads_invalid_microstate():
     
 def test_group_by_heads():
   microstates=generate_microstates(3)
-  groups=gropu_by_heads(microstates)
+  groups=group_by_heads(microstates)
 
-  assert len(gropus[0])==1
-  assert len(gropus[1])==3
-  assert len(gropus[2])==3
-  assert len(gropus[3])==1
+  assert len(groups[0])==1
+  assert len(groups[1])==3
+  assert len(groups[2])==3
+  assert len(groups[3])==1
 
+"""Now we check some of the functions for the N=7 cases, just to be safe"""
+def test_generate_microstates_N7():
+  result=generate_microstates(7)
+
+  assert len(result)==128
+  assert "0000000" in result
+  assert "1111111" in result
+
+def test_group_by_heads_N7():
+  microstates=generate_microstates(7)
+  groups=group_by_heads(microstates)
+
+  assert len(groups[0])==1
+  assert len(groups[1])==7
+  assert len(groups[2])==21
+  assert len(groups[3])==35
+  assert len(groups[4])==35
+  assert len(groups[5])==21
+  assert len(groups[6])==7
+  assert len(groups[7])==1
 
 
