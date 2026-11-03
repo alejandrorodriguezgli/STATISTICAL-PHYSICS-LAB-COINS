@@ -4,6 +4,10 @@ Omega(N, k) is the number of microstates with exactly k heads.
 """
 # First we import the math module, which provides mathematical functions and constants.
 import math
+# pathlib handles file paths, we use Path to create the output folder for figures.
+from pathlib import Path
+# matplotlib.pyplot is the plotting library; "plt" is the standard short name for it.
+import matplotlib.pyplot as plt
 
 # Now we define the function omega, which calculates the exact number of microstates with k heads among N coins.
 # This function returns an integer value representing the number of microstates.
@@ -44,3 +48,36 @@ def log_omega(N: int, k: int) -> float:
     if k < 0 or k > N:
         return float("-inf")
     return math.lgamma(N + 1) - math.lgamma(k + 1) - math.lgamma(N - k + 1) 
+
+# Next, we define the function distribution.
+# This function returns a list of integers representing the number of microstates for every possible number of heads (k) from 0 to N.
+def distribution(N: int) -> list[int]:
+    """Omega(N, k) for every k = 0, 1, ..., N."""
+    return [omega(N, k) for k in range(N + 1)]
+
+# Now we define the function plot_distributions, which plots Omega(N, k) versus k for several values of N in one figure.
+# Ns = (20, 50, 80, 100) is a default value for when the function is called without arguments.
+# The filename sets where the PDF will be saved. The function does not return any value, but it saves the plot as a PDF file and displays it.
+def plot_distributions(Ns=(20, 50, 80, 100),
+                       filename="report/figures/omega_distributions.pdf") -> None:
+    """Plot Omega(N, k) versus k for several N in one figure (log y-axis)."""
+    # We create an empty figure and axes for the plot using plt.subplots.
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    # We loop through each value of N in Ns.
+    for N in Ns:
+        ax.plot(range(N + 1), distribution(N), marker="o", markersize=3, label=f"N = {N}")
+    # We set a logarithmic scale for the y-axis to better visualize the distribution of microstates, especially for larger values of N.
+    ax.set_yscale("log")
+    # We set the axis labels to describe what is being shown.
+    ax.set_xlabel("Number of heads, k")
+    ax.set_ylabel(r"Number of microstates, $\Omega(N, k)$")
+    # Legend is added to the plot to identify which line corresponds to which value of N and a faint grid. 
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    # We adjust the margins of the plot so that the labels fit nicely within the figure.
+    fig.tight_layout()
+    # We use Path from the pathlib module to create the output folder for the figure if it does not already exist.
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)  # create folder if missing
+    fig.savefig(filename)
+    # Finally, we display the plot using plt.show(), which opens a window with the figure.
+    plt.show()
