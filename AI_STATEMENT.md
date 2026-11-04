@@ -3,15 +3,14 @@
 **AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
 TOOL USED: ChatGPT (OpenAI)  
 
-PROMPT: I asked chatGPT what function I had to use to empty the memory after each iterations to prevent the memory used in previously generated micsrostates from accumulating during subsequent tests 
+PROMPT: I asked chatGPT what function I had to use to measure the memory used
 
 AI- GENERATED SUGGESTION: 
-del microstates
-gc.collect()
+import tracemalloc  
 
-PURPOSE OF THE SUGGESTION: with these two function you can release memory after each iteration
+PURPOSE OF THE SUGGESTION: insert the function in the code using:tracemalloc.start(), tracemalloc.get_traced_memory(),tracemalloc.stop()
 
-UNDERSTANDING AND MODIFICATIONS: del microstates delates the variable carrying the microstates list and gc.collect() requests Python to identify and clean unused objects. With this explanation I knew I had to place these tho function inside my for loop of my measure_microstate_memory(N_values) function so that they after  each iteration.
+UNDERSTANDING AND MODIFICATIONS:  it is a fucntion that starcs tracking the memory used with tracemalloc.start() and whith tracemalloc.get_traced_memory() it returns a tuple containing two integer values in bytes: the current memory being used at that exact moment and the maximum peak memoy used since trackins started. And finally tracemalloc.stop() ends the memory tracking and clears the recorded trace data. With this information, I included it in my function.
 
 
 **AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
