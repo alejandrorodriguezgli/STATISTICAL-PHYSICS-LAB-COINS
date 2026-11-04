@@ -27,16 +27,20 @@ del microstates
 gc.collect()
 
 
-## Member 3 – Probability and Entropy
 
-**AI Assistance (`src/thermodynamics.py`, `test/test_thermodynamics.py`)**
+## Member 3 – Probability and Entropy
 
 **TOOL USED:** ChatGPT (OpenAI)
 
-**PROMPT:** Questions about cumulative probability, entropy calculations, Python functions and testing.
+**PROMPTS USED:**
+how to include both limits in cumulative_probability() 
+how to test probability calculations and not gettin errors due to numerical precision
+how to calculate entropy differences in entropy_change() using the multiplicities of two macrostates
 
-**AI-GENERATED SUGGESTION:** Use a `for` loop in `cumulative_probability()` to sum probabilities over an interval and `math.log()` in `entropy_change()` to apply Boltzmann's equation. ChatGPT also suggested using `math.isclose()` for numerical tests and reusing functions from `combinatorics.py`.
+**AI-GENERATED SUGGESTION:** 
+ange(k1, k2 + 1) to include both limits
+`math.isclose()` for floating-point comparisons, import existing functions and preserve both contributions. 
+math.log() to calculate entropy
+**PURPOSE:** To improve the tests and integrate the code with the rest of the project.
 
-**PURPOSE OF THE SUGGESTION:** To implement and verify the probability and entropy calculations for Part 2 (a–g).
-
-**UNDERSTANDING AND MODIFICATIONS:** I reviewed the  functions, adapted them to the code and removed duplicated lines. I understood how the probability sum and entropy difference were obtained and checked the results in Google Colab. 
+**UNDERSTANDING AND MODIFICATIONS:** I updated the tests, removed duplicated functions and checked the calculations in Google Colab.
