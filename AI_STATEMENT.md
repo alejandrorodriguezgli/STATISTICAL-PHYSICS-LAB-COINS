@@ -28,7 +28,7 @@ gc.collect()
 
 
 
-## Member 3 – Probability and Entropy
+**AI Assistance in Probability and Entropy Calculations**  
 
 **TOOL USED:** ChatGPT (OpenAI)
 
