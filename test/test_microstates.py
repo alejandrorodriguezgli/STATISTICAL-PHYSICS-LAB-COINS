@@ -3,7 +3,7 @@ from src.microstates import(generate_microstates,count_heads,group_by_heads)
 
 """ First we check the functions for N=3 because is quicker"""
 def test_generate_microstates():
-  result=generate_microstates(3)
+  result=list(generate_microstates(3))
 
   assert len(result)==8
   assert "TTT" in result
@@ -11,7 +11,10 @@ def test_generate_microstates():
 
 def test_generate_microstates_invalid_N():
   with pytest.raises(ValueError):
-    generate_microstates(0)
+    list(generate_microstates(0))
+
+  with pytest.raises(ValueError):
+    list(generate_microstates(-1))
 
 def test_count_heads():
   assert count_heads("HTH")==2
@@ -33,7 +36,7 @@ def test_group_by_heads():
 
 """Now we check some of the functions for the N=7 cases, just to be safe"""
 def test_generate_microstates_N7():
-  result=generate_microstates(7)
+  result=list(generate_microstates(7))
 
   assert len(result)==128
   assert "TTTTTTT" in result
@@ -52,4 +55,7 @@ def test_group_by_heads_N7():
   assert len(groups[6])==7
   assert len(groups[7])==1
 
+def test_generate_microstates_returns_generator():
+    result = generate_microstates(3)
 
+    assert iter(result) is result
