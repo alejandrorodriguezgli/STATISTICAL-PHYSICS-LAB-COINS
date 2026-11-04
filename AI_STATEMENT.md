@@ -33,4 +33,4 @@ tracemalloc.stop()
 
 PURPOSE OF THE SUGGESTION: measuring the Pyhton memory consumption when generating and storing all possible microstates for a given number of coins N.  
 
-UNDERSTANDING AND MODIFICATIONS: I asked to expolain me every step:start() begins memory tracking, get_traced_memory() it gives two values: current_memory that tells how much memory Python is using at that moment, and peak_memory that tells the  latgest amount of memory Python has used since tracking started. stop() ends tracking. I used this explanation to understand how the function works and integrat it in  my function: measure_micrsotate_memory(N_values)
+UNDERSTANDING AND MODIFICATIONS: I asked to expolain me every step:start() begins memory tracking, get_traced_memory() it gives two values: current_memory that tells how much memory Python is using at that moment, and peak_memory that tells the  latgest amount of memory Python has used since tracking started. stop() ends tracking. I used this explanation to understand how the function works and integrat it in  my function: measure_microstate_memory(N_values)
