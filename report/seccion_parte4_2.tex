@@ -1,0 +1,74 @@
+% Part 2 (h)-(k) -- Member 4 (Alejandro)
+\subsection{Thermodynamic implications}
+
+\paragraph{(h) Waiting time for a highly ordered state.}
+Tossing the $N=114$ coins once per second, each toss is an independent trial
+that yields exactly $k=8$ heads with probability
+\begin{equation}
+  P_8=\frac{\Omega(114,8)}{2^{114}}\approx 2.65\times10^{-23}.
+\end{equation}
+The number of tosses until the first success follows a geometric
+distribution, whose mean is $1/P_8$. The expected waiting time is therefore
+\begin{equation}
+  \langle t\rangle=\frac{1}{P_8}\,\si{s}\approx\SI{3.8e22}{s}\approx\SI{1.2e15}{years},
+\end{equation}
+about $8.7\times10^{4}$ times the age of the Universe
+($\approx\SI{4.35e17}{s}$). The result was computed in log-space,
+$\log_{10}\langle t\rangle=(N\ln2-\ln\Omega)/\ln10$, and checked against exact
+integer arithmetic (relative agreement better than $10^{-12}$).
+
+\paragraph{(i) Likelihood ratio.}
+Since the factor $2^{N}$ cancels,
+\begin{equation}
+  \frac{P_{N/2}}{P_{N/2\pm10}}=\frac{\Omega(114,57)}{\Omega(114,67)}\approx 5.74 .
+\end{equation}
+By symmetry, $\Omega(N,N/2+10)=\Omega(N,N/2-10)$, so the result is the same
+for $N/2+10$ and $N/2-10$ heads. The ratio agrees with the Gaussian estimate
+$e^{2\cdot10^{2}/N}\approx5.78$.
+
+\paragraph{(j) The Second Law of Thermodynamics.}
+None of the results contradicts the Second Law, because in statistical
+mechanics it is a statement about probabilities, not a strict prohibition.
+All $2^{N}$ microstates are equally likely, so a macrostate is observed with a
+probability proportional to its multiplicity. Using $S=k_B\ln\Omega$, the
+relative probability of two macrostates is
+\begin{equation}
+  \frac{P(k_1)}{P(k_2)}=\frac{\Omega(k_1)}{\Omega(k_2)}=e^{\Delta S/k_B}.
+\end{equation}
+States of lower entropy are therefore possible but exponentially unlikely.
+For example, moving from the maximum-disorder state $k=57$ to the ordered
+state $k=20$ ($\Delta S=-25.8\,k_B$) has a relative probability
+$e^{-25.8}\approx6\times10^{-12}$. For a small system such fluctuations are
+observable (with $N=7$, the state $k=0$ appears once every 128 tosses), but
+the system spends almost all of its time near $k=N/2$ simply because those
+macrostates contain almost all of the microstates. This is the statistical
+origin of the Second Law.
+
+\paragraph{(k) Macroscopic limit, $N\sim10^{23}$.}
+For such $N$ the direct difference of $\ln\Gamma$ functions loses all
+precision ($\ln\Gamma(10^{23})\sim5\times10^{24}$ while the results we need
+are of order unity), so we used Stirling's approximation,
+$\ln\Omega(N,N/2+x)\simeq N\ln2-\tfrac12\ln(\pi N/2)-2x^{2}/N$, and, for small
+$k$, $\ln\Omega\simeq k\ln N-\ln k!$. The distribution becomes a Gaussian of
+width $\sigma=\sqrt N/2\approx1.6\times10^{11}$ coins, but of relative width
+$\sigma/\mu=1/\sqrt N\approx3\times10^{-12}$. Re-evaluating (a)--(j):
+\begin{itemize}
+  \item (a), (h): $P_{30}\approx P_8\approx10^{-3.0\times10^{22}}$; the waiting
+        time $10^{3.0\times10^{22}}\,\si{s}$ is infinite for any practical purpose.
+  \item (b): $P_{N/2}\approx\sqrt{2/(\pi N)}\approx2.5\times10^{-12}$; even the most
+        probable single macrostate is unlikely, because about $10^{11}$
+        macrostates around $N/2$ are almost equally probable.
+  \item (c), (d): windows of $\pm10$ or $\pm20$ coins are negligible compared with
+        $\sigma$ ($\Delta P\approx5\times10^{-11}$ and $1\times10^{-10}$), but any
+        window of fixed \emph{relative} width (e.g.\ $k/N\in[0.4999,0.5001]$)
+        contains the whole probability: the measured fraction of heads is
+        always $1/2$.
+  \item (e), (f): $\Delta S/k_B\approx-2x^{2}/N$ gives $-1.3\times10^{-20}$ and
+        $-2\times10^{-21}$: fluctuations of a fixed number of coins are
+        thermodynamically invisible.
+  \item (g): $\Delta S\approx N k_B\ln2\approx\SI{0.96}{J/K}$, a macroscopic entropy.
+  \item (i): $P_{N/2}/P_{N/2\pm10}-1\approx2\times10^{-21}$; neighbouring
+        macrostates are equally likely.
+  \item (j): a macroscopic decrease of entropy has a probability of order
+        $e^{-10^{23}}$, so the Second Law becomes, in practice, an exact law.
+\end{itemize}
