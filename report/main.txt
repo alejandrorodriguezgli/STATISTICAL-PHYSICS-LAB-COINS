@@ -16,7 +16,37 @@
 
 
 \begin{document}
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
 
+  {\LARGE\bfseries Microstates and Macroscopic Thermodynamics\\[0.3em] of a Binary System\par}
+
+  \vspace{1.5cm}
+  {\Large Statistical Physics --- Laboratory Practice 1\par}
+
+  \vspace{1.5cm}
+  {\large Group Team Name / ID\par}
+
+  \vspace{1cm}
+  \begin{tabular}{c}
+    Author 1 (NIA: 100551006 GitHub: \texttt{@user1}) \\[0.3em]
+    Author 2 (NIA: 100550928, GitHub: \texttt{@user2}) \\[0.3em]
+    Author 3 (NIA: 100XXXXXX, GitHub: \texttt{@user3}) \\[0.3em]
+    Author 4 (NIA: 100XXXXXX, GitHub: \texttt{@user4})
+  \end{tabular}
+
+  \vfill
+
+  {\large Department of Physics\\
+  Universidad Carlos III de Madrid\par}
+
+  \vspace{0.8cm}
+  {\large October 20, 2026\par}
+
+  \vspace*{2cm}
+\end{titlepage}
+\newpage 
 
 
 \section{Enumeration of Microstates}
