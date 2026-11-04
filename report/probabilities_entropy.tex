@@ -1,1 +1,75 @@
+\section{Probabilities, Entropy, and Thermodynamics}
+\subsection{Parameter Assignment}
+
+We consider a system of $N=100+M$ unbiased coins, where $M$ is the harmonic mean of the last two digits of the team members' NIAs (46, 13, 28 and 06).
+
+\[
+M=\frac{4}{\frac{1}{46}+\frac{1}{13}+\frac{1}{28}+\frac{1}{6}}
+\approx 13.2871
+\]
+
+Therefore, $N \approx 113.2871$. Since $N$ must be an integer, we choose $N=114$, the nearest even integer, so that $N/2=57$ is also an integer. 
+
+
+\subsection{Probability Calculations}
+
+The probability of obtaining $k$ heads is:
+
+\[
+P_k=\frac{\Omega(N,k)}{2^N}
+=\frac{N!}{k!(N-k)!2^N}
+\]
+
+For $N=114$, the calculated probabilities are:
+
+\begin{center}
+\begin{tabular}{l l l}
+\hline
+Part & Macrostate or interval & Probability \\
+\hline
+(a) & 30 heads & $1.3931\times10^{-7}$ \\
+(b) & 57 heads & $0.074565$ \\
+(c) & 47--67 heads & $0.951275$ \\
+(d) & 37--77 tails & $0.999896$ \\
+\hline
+\end{tabular}
+\end{center}
+
+For parts (c) and (d), the probabilities are calculated by summing $P_k$ over the corresponding intervals.
+
+The results show that macrostates near $N/2$ are more probable, while states far from the center have very low probabilities.
+
+
+\subsection{Entropy Changes}
+
+Using Boltzmann's equation,
+
+\[
+S=k_B\ln\Omega
+\]
+
+the entropy difference is:
+
+\[
+\Delta S=S(k_1)-S(k_2)
+=k_B\ln\left(\frac{\Omega_1}{\Omega_2}\right)
+\]
+
+where $k_B=1.380649\times10^{-23}$ J/K.
+
+The results are:
+
+\begin{center}
+\begin{tabular}{l l l}
+\hline
+Part & Macrostates ($k_1$, $k_2$) & $\Delta S$ (J/K) \\
+\hline
+(e) & (82, 57) & $-1.5519\times10^{-22}$ \\
+(f) & (67, 57) & $-2.4133\times10^{-23}$ \\
+(g) & (57, 20) & $+3.5628\times10^{-22}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Entropy is maximum at $k=N/2$, where the multiplicity is largest. The negative values in (e) and (f) indicate lower entropy than the central macrostate, while the positive value in (g) indicates higher entropy.
 
