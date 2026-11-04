@@ -286,5 +286,77 @@ For $N=10^{23}$ the relative width is about $3\times10^{-12}$, so the
 distribution is a very sharp peak at $k=N/2$. This means a macroscopic system
 is practically always in the most disordered state.
 
+\subsection{Parameter Assignment}
+
+Considering a system of $N=100+M$ unbiased coins where $M$ is the harmonic mean of the last two digits of the team members' NIAs (46, 13, 28 and 06).
+
+\[
+M=\frac{4}{\frac{1}{46}+\frac{1}{13}+\frac{1}{28}+\frac{1}{6}}
+\approx 13.2871
+\]
+
+Therefore, $N \approx 113.2871$, and since the number of coins must be an integer, we choose $N=114$, the nearest even integer, so that $N/2=57$. 
+
+
+\subsection{Probability Calculations}
+
+The probability of obtaining $k$ heads is calculated using:
+
+\[
+P_k=\frac{\Omega(N,k)}{2^N}
+=\frac{N!}{k!(N-k)!2^N}
+\]
+
+For $N=114$, the results are:
+
+\begin{itemize}
+    \item[(a)] 30 heads:
+    $P(30)=1.3931\times10^{-7}$
+
+    \item[(b)] 57 heads:
+    $P(57)=0.074565$
+
+    \item[(c)] Between 47 and 67 heads:
+    $P=0.951275$
+
+    \item[(d)] Between 37 and 77 tails:
+    $P=0.999896$
+\end{itemize}
+
+For (c) and (d), we sum the probabilities over the corresponding intervals. The results show that macrostates near $N/2$ are much more probable than those far from the center.
+
+
+\subsection{Entropy Changes}
+
+Using Boltzmann's equation,
+
+\[
+S=k_B\ln\Omega
+\]
+
+the entropy difference between two macrostates is:
+
+\[
+\Delta S=S(k_1)-S(k_2)
+=k_B\ln\left(\frac{\Omega_1}{\Omega_2}\right)
+\]
+
+where $k_B=1.380649\times10^{-23}$ J/K.
+
+The calculated entropy changes are:
+
+\begin{itemize}
+    \item[(e)] 82 and 57 heads:
+    $\Delta S=-1.5519\times10^{-22}$ J/K
+
+    \item[(f)] 67 and 57 heads:
+    $\Delta S=-2.4133\times10^{-23}$ J/K
+
+    \item[(g)] 57 and 20 heads:
+    $\Delta S=+3.5628\times10^{-22}$ J/K
+\end{itemize}
+
+Entropy is maximum at $k=N/2$, where the number of microstates is largest. In (e) and (f), the entropy difference is negative because the first state has lower entropy. In (g), it is positive because the first state has higher entropy.
+
 
 \end{document}
