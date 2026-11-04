@@ -32,15 +32,27 @@ gc.collect()
 
 **TOOL USED:** ChatGPT (OpenAI)
 
-**PROMPTS USED:**
-how to include both limits in cumulative_probability() 
-how to test probability calculations and not gettin errors due to numerical precision
-how to calculate entropy differences in entropy_change() using the multiplicities of two macrostates
+**PROMPTS:**
 
-**AI-GENERATED SUGGESTION:** 
-ange(k1, k2 + 1) to include both limits
-`math.isclose()` for floating-point comparisons, import existing functions and preserve both contributions. 
-math.log() to calculate entropy
-**PURPOSE:** To improve the tests and integrate the code with the rest of the project.
+How can I include both limits in `cumulative_probability()`?
 
-**UNDERSTANDING AND MODIFICATIONS:** I updated the tests, removed duplicated functions and checked the calculations in Google Colab.
+How can I avoid numerical precision errors when testing probabilities?
+
+How can I calculate entropy differences in `entropy_change()` using the multiplicities of two macrostates?
+
+**AI-GENERATED SUGGESTION:**
+
+ `range(k1, k2 + 1)` to include both limits, `math.isclose()` for floating-point comparisons and `math.log()` to calculate entropy.
+
+**PURPOSE OF THE SUGGESTION:**
+
+To implement and test the probability and entropy calculations.
+
+**UNDERSTANDING AND MODIFICATIONS:**
+
+`range(k1, k2 + 1)` includes both limits since Python excludes the last value in `range()`.
+
+`math.isclose()` allowes to compare numerical results while allowing small differences
+
+`math.log()` calculates the logarithm of the multiplicity, which is needed in Boltzmann's equation.
+
