@@ -1,4 +1,43 @@
 
+**AI Assistance Microstate Enumeration: src/microstates.py**  
+TOOL USED: ChatGPT (OpenAI)  
+
+PROMPT: how can I check if N is a valid input before starting computing the microstates?
+
+AI- GENERATED SUGGESTION:   
+if not isinstance(N, int) or isinstance(N, bool):
+
+PURPOSE OF THE SUGGESTION: not isinstance(N, int) checks if N is not an integer and isinstance(N, bool) checks if N is not a boolian.
+
+UNDERSTANDING AND MODIFICATIONS: if the values id not an integer or if it is a boolian the error ValueError("N must be a positive integer") raises. I added the condition or N<0 so that the complete line of code was finally:  
+if not isinstance(N, int) or isinstance(N, bool) or N <= 0:  
+--raise ValueError("N must be a positive integer")
+
+
+**AI Assistance Microstate Enumeration: src/microstates.py**  
+TOOL USED: ChatGPT (OpenAI)  
+
+PROMPT: I have an error when running the cell, it does not find the folder src where the function generate_micrsotates is
+
+AI- GENERATED SUGGESTION:   
+import os  
+os.chdir("..")
+
+PURPOSE OF THE SUGGESTION: the problem is that VS Code and Pyhton do not start in teh same code. When running the notebook, the directory where Python is working is in notebooks, but the src folder is one level above notebooks, Pyhton is looking for src inside notebooks. With this function we indicate Python to move one folder up.
+
+UNDERSTANDING AND MODIFICATIONS: I understood the function and add it to the beginning of the code, I left it as it is becuase I could not came up with another solution
+
+**AI Assistance Microstate Enumeration: src/microstates.py**  
+TOOL USED: ChatGPT (OpenAI)  
+
+PROMPT: I asked chatGPT how to write the string of the microstate
+
+AI- GENERATED SUGGESTION: 
+format(i, f"0{N}b")
+
+PURPOSE OF THE SUGGESTION: it converts an integer (i) into a binary string with exactly N digits.
+
+UNDERSTANDING AND MODIFICATIONS:  I implemented this and then I add microstate = microstate.replace("0", "T").replace("1", "H") to obtain the strings with letters so that we could identify heads or tails easier.
 
 **AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
 TOOL USED: ChatGPT (OpenAI)  
@@ -7,6 +46,22 @@ PROMPT: I asked chatGPT what function I had to use to measure the memory used
 
 AI- GENERATED SUGGESTION: 
 import tracemalloc  
+
+PURPOSE OF THE SUGGESTION: insert the function in the code using:tracemalloc.start(), tracemalloc.get_traced_memory(),tracemalloc.stop()
+
+UNDERSTANDING AND MODIFICATIONS:  it is a fucntion that starcs tracking the memory used with tracemalloc.start() and whith tracemalloc.get_traced_memory() it returns a tuple containing two integer values in bytes: the current memory being used at that exact moment and the maximum peak memoy used since trackins started. And finally tracemalloc.stop() ends the memory tracking and clears the recorded trace data. With this information, I included it in my function.
+
+**AI Assistance Microstate Enumeration: report_part1.txt)**  
+TOOL USED: ChatGPT (OpenAI)  
+
+PROMPT: give me this tables in LaTex code ( and I introduced the tables of all possible microstates for N=7, the table with the data of: the memory, time, all microstates and the maxium number of N, and also the data of the table of the number of microstates for each possible number of headstable in N=/ 
+
+AI- GENERATED SUGGESTION: it gave me the tables in Latex code
+
+
+PURPOSE OF THE SUGGESTION: insert the function in the code using:tracemalloc.start(), tracemalloc.get_traced_memory(),tracemalloc.stop()
+
+UNDERSTANDING AND MODIFICATIONS:  it is a fucntion that starcs tracking the memory used with tracemalloc.start() and whith tracemalloc.get_traced_memory() it returns a tuple containing two integer values in bytes: the current memory being used at that exact moment and the maximum peak memoy used since trackins started. And finally tracemalloc.stop() ends the memory tracking and clears the recorded trace data. With this information, I included it in my function.
 
 
 
