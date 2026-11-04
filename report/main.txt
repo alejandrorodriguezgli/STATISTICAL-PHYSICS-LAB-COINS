@@ -30,10 +30,10 @@
 
   \vspace{1cm}
   \begin{tabular}{c}
-    Author 1 (NIA: 100551006 GitHub: \texttt{@user1}) \\[0.3em]
-    Author 2 (NIA: 100550928, GitHub: \texttt{@user2}) \\[0.3em]
-    Author 3 (NIA: 100XXXXXX, GitHub: \texttt{@user3}) \\[0.3em]
-    Author 4 (NIA: 100XXXXXX, GitHub: \texttt{@user4})
+    Author 1 (NIA: 100551006 GitHub: \texttt{100551006}) \\[0.3em]
+    Author 2 (NIA: 100550928, GitHub: \texttt{@LucasFraile11}) \\[0.3em]
+    Author 3 (NIA: 100551013, GitHub: \texttt{@alejandrorodriguezgli}) \\[0.3em]
+    Author 4 (NIA: 100553546, GitHub: \texttt{@100553546})
   \end{tabular}
 
   \vfill
