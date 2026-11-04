@@ -1,43 +1,41 @@
-\section{Probabilities, Entropy, and Thermodynamics}
 \subsection{Parameter Assignment}
 
-We consider a system of $N=100+M$ unbiased coins, where $M$ is the harmonic mean of the last two digits of the team members' NIAs (46, 13, 28 and 06).
+Considering a system of $N=100+M$ unbiased coins where $M$ is the harmonic mean of the last two digits of the team members' NIAs (46, 13, 28 and 06).
 
 \[
 M=\frac{4}{\frac{1}{46}+\frac{1}{13}+\frac{1}{28}+\frac{1}{6}}
 \approx 13.2871
 \]
 
-Therefore, $N \approx 113.2871$. Since $N$ must be an integer, we choose $N=114$, the nearest even integer, so that $N/2=57$ is also an integer. 
+Therefore, $N \approx 113.2871$, and since the number of coins must be an integer, we choose $N=114$, the nearest even integer, so that $N/2=57$. 
 
 
 \subsection{Probability Calculations}
 
-The probability of obtaining $k$ heads is:
+The probability of obtaining $k$ heads is calculated using:
 
 \[
 P_k=\frac{\Omega(N,k)}{2^N}
 =\frac{N!}{k!(N-k)!2^N}
 \]
 
-For $N=114$, the calculated probabilities are:
+For $N=114$, the results are:
 
-\begin{center}
-\begin{tabular}{l l l}
-\hline
-Part & Macrostate or interval & Probability \\
-\hline
-(a) & 30 heads & $1.3931\times10^{-7}$ \\
-(b) & 57 heads & $0.074565$ \\
-(c) & 47--67 heads & $0.951275$ \\
-(d) & 37--77 tails & $0.999896$ \\
-\hline
-\end{tabular}
-\end{center}
+\begin{itemize}
+    \item[(a)] 30 heads:
+    $P(30)=1.3931\times10^{-7}$
 
-For parts (c) and (d), the probabilities are calculated by summing $P_k$ over the corresponding intervals.
+    \item[(b)] 57 heads:
+    $P(57)=0.074565$
 
-The results show that macrostates near $N/2$ are more probable, while states far from the center have very low probabilities.
+    \item[(c)] Between 47 and 67 heads:
+    $P=0.951275$
+
+    \item[(d)] Between 37 and 77 tails:
+    $P=0.999896$
+\end{itemize}
+
+For (c) and (d), we sum the probabilities over the corresponding intervals. The results show that macrostates near $N/2$ are much more probable than those far from the center.
 
 
 \subsection{Entropy Changes}
@@ -48,7 +46,7 @@ Using Boltzmann's equation,
 S=k_B\ln\Omega
 \]
 
-the entropy difference is:
+the entropy difference between two macrostates is:
 
 \[
 \Delta S=S(k_1)-S(k_2)
@@ -57,19 +55,17 @@ the entropy difference is:
 
 where $k_B=1.380649\times10^{-23}$ J/K.
 
-The results are:
+The calculated entropy changes are:
 
-\begin{center}
-\begin{tabular}{l l l}
-\hline
-Part & Macrostates ($k_1$, $k_2$) & $\Delta S$ (J/K) \\
-\hline
-(e) & (82, 57) & $-1.5519\times10^{-22}$ \\
-(f) & (67, 57) & $-2.4133\times10^{-23}$ \\
-(g) & (57, 20) & $+3.5628\times10^{-22}$ \\
-\hline
-\end{tabular}
-\end{center}
+\begin{itemize}
+    \item[(e)] 82 and 57 heads:
+    $\Delta S=-1.5519\times10^{-22}$ J/K
 
-Entropy is maximum at $k=N/2$, where the multiplicity is largest. The negative values in (e) and (f) indicate lower entropy than the central macrostate, while the positive value in (g) indicates higher entropy.
+    \item[(f)] 67 and 57 heads:
+    $\Delta S=-2.4133\times10^{-23}$ J/K
 
+    \item[(g)] 57 and 20 heads:
+    $\Delta S=+3.5628\times10^{-22}$ J/K
+\end{itemize}
+
+Entropy is maximum at $k=N/2$, where the number of microstates is largest. In (e) and (f), the entropy difference is negative because the first state has lower entropy. In (g), it is positive because the first state has higher entropy.
