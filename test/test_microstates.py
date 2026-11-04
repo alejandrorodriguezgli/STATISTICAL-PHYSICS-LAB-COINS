@@ -6,21 +6,21 @@ def test_generate_microstates():
   result=generate_microstates(3)
 
   assert len(result)==8
-  assert "000" in result
-  assert "111" in result
+  assert "TTT" in result
+  assert "HHH" in result
 
 def test_generate_microstates_invalid_N():
   with pytest.raises(ValueError):
     generate_microstates(0)
 
 def test_count_heads():
-  assert count_heads("101")==2
-  assert count_heads("111")==3
-  assert count_heads("000")==0
+  assert count_heads("HTH")==2
+  assert count_heads("HHH")==3
+  assert count_heads("TTT")==0
 
 def test_count_heads_invalid_microstate():
   with pytest.raises(ValueError):
-    count_heads("10A")
+    count_heads("THA")
     
 def test_group_by_heads():
   microstates=generate_microstates(3)
@@ -36,8 +36,8 @@ def test_generate_microstates_N7():
   result=generate_microstates(7)
 
   assert len(result)==128
-  assert "0000000" in result
-  assert "1111111" in result
+  assert "TTTTTTT" in result
+  assert "HHHHHHH" in result
 
 def test_group_by_heads_N7():
   microstates=generate_microstates(7)
