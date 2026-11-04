@@ -286,7 +286,7 @@ For $N=10^{23}$ the relative width is about $3\times10^{-12}$, so the
 distribution is a very sharp peak at $k=N/2$. This means a macroscopic system
 is practically always in the most disordered state.
 
-\subsection{Parameter Assignment}
+\section{Parameter Assignment}
 
 Considering a system of $N=100+M$ unbiased coins where $M$ is the harmonic mean of the last two digits of the team members' NIAs (46, 13, 28 and 06).
 
@@ -358,7 +358,7 @@ The calculated entropy changes are:
 
 Entropy is maximum at $k=N/2$, where the number of microstates is largest. In (e) and (f), the entropy difference is negative because the first state has lower entropy. In (g), it is positive because the first state has higher entropy.
 
-\subsection{Thermodynamic implications}
+\section{Thermodynamic implications}
 
 \paragraph{(h) Waiting time for a highly ordered state.}
 Tossing the $N=114$ coins once per second, each toss is an independent trial
