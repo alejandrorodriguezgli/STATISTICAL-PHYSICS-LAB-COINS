@@ -229,7 +229,7 @@ Therefore the maximum number of coins that could be completely enumerated within
 
 However, it is important the fact that when the same measurement was carried out without tracking the memory used, the highest N obtain within the 5 minutes was higher so, tracking the memory consumes time.
 
-\subsection{Distribution of Microstates}
+\section{Distribution of Microstates}
 
 The number of microstates with $k$ heads is the binomial coefficient:
 
