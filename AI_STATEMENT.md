@@ -1,5 +1,4 @@
 
-
 **AI Assistance Microstate Enumeration: src/microstates.py**  
 TOOL USED: ChatGPT (OpenAI)  
 
@@ -14,18 +13,6 @@ UNDERSTANDING AND MODIFICATIONS: if the values id not an integer or if it is a b
 if not isinstance(N, int) or isinstance(N, bool) or N <= 0:  
 --raise ValueError("N must be a positive integer")
 
-
-**AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
-TOOL USED: ChatGPT (OpenAI)  
-
-PROMPT: I asked chatGPT what function I had to use to measure the memory used
-
-AI- GENERATED SUGGESTION: 
-import tracemalloc  
-
-PURPOSE OF THE SUGGESTION: insert the function in the code using:tracemalloc.start(), tracemalloc.get_traced_memory(),tracemalloc.stop()
-
-UNDERSTANDING AND MODIFICATIONS:  it is a fucntion that starcs tracking the memory used with tracemalloc.start() and whith tracemalloc.get_traced_memory() it returns a tuple containing two integer values in bytes: the current memory being used at that exact moment and the maximum peak memoy used since trackins started. And finally tracemalloc.stop() ends the memory tracking and clears the recorded trace data. With this information, I included it in my function.
 
 **AI Assistance Microstate Enumeration: src/microstates.py**  
 TOOL USED: ChatGPT (OpenAI)  
@@ -52,7 +39,29 @@ PURPOSE OF THE SUGGESTION: it converts an integer (i) into a binary string with 
 
 UNDERSTANDING AND MODIFICATIONS:  I implemented this and then I add microstate = microstate.replace("0", "T").replace("1", "H") to obtain the strings with letters so that we could identify heads or tails easier.
 
+**AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
+TOOL USED: ChatGPT (OpenAI)  
 
+PROMPT: I asked chatGPT what function I had to use to measure the memory used
+
+AI- GENERATED SUGGESTION: 
+import tracemalloc  
+
+PURPOSE OF THE SUGGESTION: insert the function in the code using:tracemalloc.start(), tracemalloc.get_traced_memory(),tracemalloc.stop()
+
+UNDERSTANDING AND MODIFICATIONS:  it is a fucntion that starcs tracking the memory used with tracemalloc.start() and whith tracemalloc.get_traced_memory() it returns a tuple containing two integer values in bytes: the current memory being used at that exact moment and the maximum peak memoy used since trackins started. And finally tracemalloc.stop() ends the memory tracking and clears the recorded trace data. With this information, I included it in my function.
+
+**AI Assistance Microstate Enumeration: report_part1.txt)**  
+TOOL USED: ChatGPT (OpenAI)  
+
+PROMPT: give me this tables in LaTex code ( and I introduced the tables of all possible microstates for N=7, the table with the data of: the memory, time, all microstates and the maxium number of N, and also the data of the table of the number of microstates for each possible number of headstable in N=/ 
+
+AI- GENERATED SUGGESTION: it gave me the tables in Latex code
+
+
+PURPOSE OF THE SUGGESTION: insert the function in the code using:tracemalloc.start(), tracemalloc.get_traced_memory(),tracemalloc.stop()
+
+UNDERSTANDING AND MODIFICATIONS:  it is a fucntion that starcs tracking the memory used with tracemalloc.start() and whith tracemalloc.get_traced_memory() it returns a tuple containing two integer values in bytes: the current memory being used at that exact moment and the maximum peak memoy used since trackins started. And finally tracemalloc.stop() ends the memory tracking and clears the recorded trace data. With this information, I included it in my function.
 
 
 
