@@ -9,7 +9,7 @@ PURPOSE OF THE SUGGESTION: that formula converts all integers from 0 to 2^(N-1) 
 
 UNDERSTANDING AND MODIFICATIONS: I asked ChatGPT to explain the expression step by step and when I undertsood it I chose an equivalent version written by me that includes a loop before the return:  
 
-  microstates_list=[]  
+  microstates_list=[ ]  
   for i in range(2**N):  
   --microstate=format(i,f"0{N}b")  
   --microstates_list.append(microstate)  
@@ -20,16 +20,12 @@ TOOL USED: ChatGPT (OpenAI)
 
 PROMPT: I asked chatGPT what function I had to use to measure the memory required by generate_microstates() function 
 
-AI- GENERATED SUGGESTION: 
-import tracemalloc
-
-tracemalloc.start()
-
-microstates = generate_microstates(N)
-
-current_memory, peak_memory = tracemalloc.get_traced_memory()
-
-tracemalloc.stop()
+AI- GENERATED SUGGESTION:  
+import tracemalloc  
+tracemalloc.start()  
+microstates = generate_microstates(N)  
+current_memory, peak_memory = tracemalloc.get_traced_memory()  
+tracemalloc.stop()  
 
 PURPOSE OF THE SUGGESTION: measuring the Pyhton memory consumption when generating and storing all possible microstates for a given number of coins N.  
 
@@ -54,9 +50,8 @@ TOOL USED: ChatGPT (OpenAI)
 
 PROMPT: I have an error when running the cell, it does not find the folder src where the function generate_micrsotates is
 
-AI- GENERATED SUGGESTION: 
-import os
-
+AI- GENERATED SUGGESTION:   
+import os  
 os.chdir("..")
 
 PURPOSE OF THE SUGGESTION: the problem is that VS Code and Pyhton do not start in teh same code. When running the notebook, the directory where Python is working is in notebooks, but the src folder is one level above notebooks, Pyhton is looking for src inside notebooks. With this function we indicate Python to move one folder up.
