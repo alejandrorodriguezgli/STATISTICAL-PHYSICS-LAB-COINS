@@ -1,30 +1,12 @@
-**AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
-TOOL USED: ChatGPT (OpenAI)  
 
-PROMPT: I asked chatGPT which function I had to use to measure the memory required by generate_microstates() function 
-
-AI- GENERATED SUGGESTION:  
-import psutil  
-process = psutil.Process(os.getpid())  
-process.memory_info().rss  
-
-
-PURPOSE OF THE SUGGESTION: measuring the Pyhton memory consumption when generating and storing all possible microstates for a given number of coins N.  
-
-UNDERSTANDING AND MODIFICATIONS:  
-import psutil: library that provides information aboutr running processes  
-process = psutil.Process(os.getpid()):  
-process.memory_info().rss: obtains the Resident Set Size (RSS), that represents the physical RAM occupied by the Python process.   
-After understanding it, I included it to obtain the memory consumed: by computing the memory occupied just at the beinning and just at the end and subtracting them, we obtain the memory consumed in the process.
 
 **AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
 TOOL USED: ChatGPT (OpenAI)  
 
-PROMPT: I asked chatGPT what function I had to use to empty the memory after each iterations to prevent the memory used in previously generated micsrostates from accumulating during subsequent tests 
+PROMPT: I asked chatGPT what function I had to use to measure the memory used
 
 AI- GENERATED SUGGESTION: 
-del microstates
-gc.collect()
+import tracemalloc  
 
 
 
