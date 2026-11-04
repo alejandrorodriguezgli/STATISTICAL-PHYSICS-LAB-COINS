@@ -15,3 +15,22 @@ UNDERSTANDING AND MODIFICATIONS: I asked ChatGPT to explain the expression step 
   --microstates_list.append(microstate)  
   return microstates_list
 
+**AI Assistance Microstate Enumeration: max number(notebooks/max_N.ipynb)**  
+TOOL USED: ChatGPT (OpenAI)  
+
+PROMPT: I asked chatGPT what function I had to use to measure the memory required by generate_microstates() function 
+
+AI- GENERATED SUGGESTION: 
+import tracemalloc
+
+tracemalloc.start()
+
+microstates = generate_microstates(N)
+
+current_memory, peak_memory = tracemalloc.get_traced_memory()
+
+tracemalloc.stop()
+
+PURPOSE OF THE SUGGESTION: measuring the Pyhton memory consumption when generating and storing all possible microstates for a given number of coins N.  
+
+UNDERSTANDING AND MODIFICATIONS: I asked to expolain me every step:start() begins memory tracking, get_traced_memory() it gives two values: current_memory that tells how much memory Python is using at that moment, and peak_memory that tells the  latgest amount of memory Python has used since tracking started. stop() ends tracking. I used this explanation to understand how the function works and integrat it in  my function: measure_micrsotate_memory(N_values)
