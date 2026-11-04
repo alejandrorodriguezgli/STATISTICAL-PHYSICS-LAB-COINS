@@ -4,7 +4,7 @@ Each coin can be heads(H) or tails (T)
 """
 def generate_microstates(N): 
   """
-  It generates all possible microstates for N coins
+  It generates all possible microstates for N coins in binary
   It returns
     A list of strings, where H represents tails and T represents heads
   """
@@ -12,8 +12,8 @@ def generate_microstates(N):
     raise ValueError ("N must be greater than 0")
   microstates_list=[]
   for i in range(2**N):
-    microstate=format(i,f"0{N}b")
-    microstate = microstate.replace("0", "T").replace("1", "H")
+    microstate=format(i,f"0{N}b")#We generate the microstates first in binary, it is easier
+    microstate = microstate.replace("0", "T").replace("1", "H")#Now we change the "names" of the bits so that it is easier to identify heads and tails
     microstates_list.append(microstate)  
   return microstates_list
 
