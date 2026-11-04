@@ -1,1 +1,465 @@
+\documentclass[12pt,a4paper]{article}
 
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+
+\begin{document}
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+
+  {\LARGE\bfseries Microstates and Macroscopic Thermodynamics\\[0.3em] of a Binary System\par}
+
+  \vspace{1.5cm}
+  {\Large Statistical Physics --- Laboratory Practice 1\par}
+
+  \vspace{1.5cm}
+  {\large Group Team Name / ID\par}
+
+  \vspace{1cm}
+  \begin{tabular}{c}
+    Author 1 (NIA: 100551006 GitHub: \texttt{100551006}) \\[0.3em]
+    Author 2 (NIA: 100550928, GitHub: \texttt{@LucasFraile11}) \\[0.3em]
+    Author 3 (NIA: 100551013, GitHub: \texttt{@alejandrorodriguezgli}) \\[0.3em]
+    Author 4 (NIA: 100553546, GitHub: \texttt{@100553546})
+  \end{tabular}
+
+  \vfill
+
+  {\large Department of Physics\\
+  Universidad Carlos III de Madrid\par}
+
+  \vspace{0.8cm}
+  {\large October 20, 2026\par}
+
+  \vspace*{2cm}
+\end{titlepage}
+\newpage 
+
+
+\section{Enumeration of Microstates}
+
+\subsection{Enumeration of All Microstates for $N=7$}
+
+A microstates describes one particular configuration of the N coins, taking into account that each coin has 2 possibilities, Heads (H) and Tails (T) the total number of possible microstates for a system  of N coins is:
+
+\begin{equation}
+    \Omega_{\mathrm{total}} = 2^N .
+\end{equation}
+
+For the case of $N=7$, each microstate is a string of seven letters, H or T. And the total number of microstates is therefore:
+\[
+    \Omega_{\text{total}} = 2^7 = 128.
+\]
+
+
+
+The microstates are grouped according to the number of heads,$k$. The number of configurations containing exactly
+$k$ heads is given by the binomial coefficient
+
+\begin{equation}
+    \Omega(7,k) = \binom{7}{k}
+    = \frac{7!}{k!(7-k)!}.
+\end{equation}
+
+The following table shows all 128 possible microstates, grouped according to their number of heads. It was obtained with the code implemented in Python.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{c X}
+\toprule
+\textbf{Number of heads ($k$)}
+&
+\textbf{Microstates}
+\\
+\midrule
+
+0 &
+\texttt{TTTTTTT}
+\\
+
+1 &
+\texttt{TTTTTTH}, \texttt{TTTTTHT}, \texttt{TTTTHTT},
+\texttt{TTTHTTT}, \texttt{TTHTTTT}, \texttt{THTTTTT},
+\texttt{HTTTTTT}
+\\
+
+2 &
+\texttt{TTTTTHH}, \texttt{TTTTHTH}, \texttt{TTTTHHT},
+\texttt{TTTHTTH}, \texttt{TTTHTHT}, \texttt{TTTHHTT},
+\texttt{TTHTTTH}, \texttt{TTHTTHT}, \texttt{TTHTHTT},
+\texttt{TTHHTTT}, \texttt{THTTTTH}, \texttt{THTTTHT},
+\texttt{THTTHTT}, \texttt{THTHTTT}, \texttt{THHTTTT},
+\texttt{HTTTTTH}, \texttt{HTTTTHT}, \texttt{HTTTHTT},
+\texttt{HTTHTTT}, \texttt{HTHTTTT}, \texttt{HHTTTTT}
+\\
+
+3 &
+\texttt{TTTTHHH}, \texttt{TTTHTHH}, \texttt{TTTHHTH},
+\texttt{TTTHHHT}, \texttt{TTHTTHH}, \texttt{TTHTHTH},
+\texttt{TTHTHHT}, \texttt{TTHHTTH}, \texttt{TTHHTHT},
+\texttt{TTHHHTT}, \texttt{THTTTHH}, \texttt{THTTHTH},
+\texttt{THTTHHT}, \texttt{THTHTTH}, \texttt{THTHTHT},
+\texttt{THTHHTT}, \texttt{THHTTTH}, \texttt{THHTTHT},
+\texttt{THHTHTT}, \texttt{THHHTTT}, \texttt{HTTTTHH},
+\texttt{HTTTHTH}, \texttt{HTTTHHT}, \texttt{HTTHTTH},
+\texttt{HTTHTHT}, \texttt{HTTHHTT}, \texttt{HTHTTTH},
+\texttt{HTHTTHT}, \texttt{HTHTHTT}, \texttt{HTHHTTT},
+\texttt{HHTTTTH}, \texttt{HHTTTHT}, \texttt{HHTTHTT},
+\texttt{HHTHTTT}, \texttt{HHHTTTT}
+\\
+
+4 &
+\texttt{TTTHHHH}, \texttt{TTHTHHH}, \texttt{TTHHTHH},
+\texttt{TTHHHTH}, \texttt{TTHHHHT}, \texttt{THTTHHH},
+\texttt{THTHTHH}, \texttt{THTHHTH}, \texttt{THTHHHT},
+\texttt{THHTTHH}, \texttt{THHTHTH}, \texttt{THHTHHT},
+\texttt{THHHTTH}, \texttt{THHHTHT}, \texttt{THHHHTT},
+\texttt{HTTTHHH}, \texttt{HTTHTHH}, \texttt{HTTHHTH},
+\texttt{HTTHHHT}, \texttt{HTHTTHH}, \texttt{HTHTHTH},
+\texttt{HTHTHHT}, \texttt{HTHHTTH}, \texttt{HTHHTHT},
+\texttt{HTHHHTT}, \texttt{HHTTTHH}, \texttt{HHTTHTH},
+\texttt{HHTTHHT}, \texttt{HHTHTTH}, \texttt{HHTHTHT},
+\texttt{HHTHHTT}, \texttt{HHHTTTH}, \texttt{HHHTTHT},
+\texttt{HHHTHTT}, \texttt{HHHHTTT}
+\\
+
+5 &
+\texttt{TTHHHHH}, \texttt{THTHHHH}, \texttt{THHTHHH},
+\texttt{THHHTHH}, \texttt{THHHHTH}, \texttt{THHHHHT},
+\texttt{HTTHHHH}, \texttt{HTHTHHH}, \texttt{HTHHTHH},
+\texttt{HTHHHTH}, \texttt{HTHHHHT}, \texttt{HHTTHHH},
+\texttt{HHTHTHH}, \texttt{HHTHHTH}, \texttt{HHTHHHT},
+\texttt{HHHTTHH}, \texttt{HHHTHTH}, \texttt{HHHTHHT},
+\texttt{HHHHTTH}, \texttt{HHHHTHT}, \texttt{HHHHHTT}
+\\
+
+6 &
+\texttt{THHHHHH}, \texttt{HTHHHHH}, \texttt{HHTHHHH},
+\texttt{HHHTHHH}, \texttt{HHHHTHH}, \texttt{HHHHHTH},
+\texttt{HHHHHHT}
+\\
+
+7 &
+\texttt{HHHHHHH}
+\\
+
+\bottomrule
+\end{tabularx}
+\caption{All 128 microstates for a system of seven coins, grouped by
+the number of heads.}
+\label{tab:microstates_N7}
+\end{table}
+
+
+The number of microstates in each group is summarized in
+Table~\ref{tab:microstates}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+Number of heads ($k$) & Number of microstates ($\Omega(7,k)$) \\
+\midrule
+0 & 1 \\
+1 & 7 \\
+2 & 21 \\
+3 & 35 \\
+4 & 35 \\
+5 & 21 \\
+6 & 7 \\
+7 & 1 \\
+\midrule
+Total & 128 \\
+\bottomrule
+\end{tabular}
+\caption{Number of microstates for each possible number of heads
+in a system of seven coins.}
+\label{tab:microstates}
+\end{table}
+
+The number of microstates corresponding to each number of heads, calculated using the binomial coeffciecint matches the values obtained from the code.
+
+\begin{equation}
+\sum_{k=0}^{7}\binom{7}{k}
+=1+7+21+35+35+21+7+1
+=128=2^7.
+\end{equation}
+
+This confirms that all possible microstates have been enumerated
+exactly once, so the code is correct.
+It is important that the distribution is symmetric so the number of configurations with $k$ heads is equal to the number
+with $7-k$ heads.
+
+\subsection{Computational Limits of Microstate Enumeration}
+
+The target of this part is to determine the largest number
+of coins for which all possible microstates can be generated and stored in less than five minutes.
+
+The total number of microstates increases exponentially with
+the number of coins:
+
+\begin{equation}
+    \Omega_{\mathrm{total}}(N)=2^N.
+\end{equation}
+
+
+\subsubsection*{Methodology}
+
+For each value of $N$, the program generates all possible binary
+configurations and stores them in a Python list. 
+To evaluate the performance of the program it was used the function \texttt{time.perf\_counter()} to measure execution time , while memory consumption was monitored using the \texttt{tracemalloc}.
+
+\subsubsection*{Results}
+
+% In the preamble: \usepackage{booktabs}
+\begin{table}[htbp]
+  \centering
+  
+  \label{tab:enumeration}
+  \begin{tabular}{rrrr}
+    \toprule
+    $N$ & Microstates ($2^N$) & Time (s) & Peak memory (MB) \\
+    \midrule
+    20 & 1\,048\,576   & 0.745   & 42.0    \\
+    21 & 2\,097\,152   & 1.587   & 80.5    \\
+    22 & 4\,194\,304   & 2.982   & 161.2   \\
+    23 & 8\,388\,608   & 5.854   & 323.3   \\
+    24 & 16\,777\,216  & 11.889  & 648.2   \\
+    25 & 33\,554\,432  & 24.054  & 1300.1  \\
+    26 & 67\,108\,864  & 56.867  & 2607.5  \\
+    27 & 134\,217\,728 & 150.249 & 5230.1  \\
+    28 & 268\,435\,456 & 367.817 & 10491.1 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Wall-clock time and peak memory for full enumeration of the $2^N$ microstates.
+  The 5-minute limit is exceeded at $N=28$.}
+\end{table}
+
+For $N=27$, the program generated 134217728 microstates in
+approximately 150'249 seconds, which is less than the five-minute
+limit, and it consumed 5230 MB.
+For $N=28$, it exceeds the
+time limit of 5 minutes (=300 s).
+Therefore the maximum number of coins that could be completely enumerated within 5 minutes and with this program is 27.
+
+However, it is important the fact that when the same measurement was carried out without tracking the memory used, the highest N obtain within the 5 minutes was higher so, tracking the memory consumes time.
+
+\section{Distribution of Microstates}
+
+The number of microstates with $k$ heads is the binomial coefficient:
+
+\[
+\Omega(N,k)=\binom{N}{k}=\frac{N!}{k!\,(N-k)!}
+\]
+
+To compute it, we cancelled the $(N-k)!$ and used the product
+$\Omega(N,k)=\prod_{i=1}^{k}\frac{N+1-i}{i}$, which avoids calculating
+very large factorials.
+For large $N$ we used $\ln\Omega$, computed with the log-gamma function.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figures/omega_distributions.pdf}
+  \caption{$\Omega(N,k)$ for $N=20, 50, 80, 100$ (logarithmic scale).}
+\end{figure}
+
+All curves have their maximum at $k=N/2$ and are equal to 1 at $k=0$ and
+$k=N$. The maximum grows very fast: about $10^5$ for $N=20$ and $10^{29}$ for
+$N=100$.
+
+
+\subsection{Maximum N}
+
+\begin{itemize}
+    \item Exact calculation: no limit, but it gets slower
+    ($0.073 \pm 0.005$ s for $N=1000$, $3.24 \pm 0.04$ s for $N=4000$).
+
+    \item Plotting: the largest number a computer float can store is about
+    $1.8\times10^{308}$, so the maximum $N$ we can plot is $N=1029$.
+\end{itemize}
+
+Using $\ln\Omega$ instead removes this limit.
+
+
+\subsection{Limit $N \sim 10^{23}$}
+
+For large $N$ the distribution becomes a Gaussian with width
+$\sigma=\sqrt{N}/2$, so the relative width is:
+
+\[
+\frac{\sigma}{N/2}=\frac{1}{\sqrt{N}}
+\]
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figures/probability_narrowing.pdf}
+  \caption{Probability versus fraction of heads $k/N$. The peak gets narrower
+  as $N$ grows.}
+\end{figure}
+
+For $N=10^{23}$ the relative width is about $3\times10^{-12}$, so the
+distribution is a very sharp peak at $k=N/2$. This means a macroscopic system
+is practically always in the most disordered state.
+
+\section{Parameter Assignment}
+
+Considering a system of $N=100+M$ unbiased coins where $M$ is the harmonic mean of the last two digits of the team members' NIAs (46, 13, 28 and 06).
+
+\[
+M=\frac{4}{\frac{1}{46}+\frac{1}{13}+\frac{1}{28}+\frac{1}{6}}
+\approx 13.2871
+\]
+
+Therefore, $N \approx 113.2871$, and since the number of coins must be an integer, we choose $N=114$, the nearest even integer, so that $N/2=57$. 
+
+
+\subsection{Probability Calculations}
+
+The probability of obtaining $k$ heads is calculated using:
+
+\[
+P_k=\frac{\Omega(N,k)}{2^N}
+=\frac{N!}{k!(N-k)!2^N}
+\]
+
+For $N=114$, the results are:
+
+\begin{itemize}
+    \item[(a)] 30 heads:
+    $P(30)=1.3931\times10^{-7}$
+
+    \item[(b)] 57 heads:
+    $P(57)=0.074565$
+
+    \item[(c)] Between 47 and 67 heads:
+    $P=0.951275$
+
+    \item[(d)] Between 37 and 77 tails:
+    $P=0.999896$
+\end{itemize}
+
+For (c) and (d), we sum the probabilities over the corresponding intervals. The results show that macrostates near $N/2$ are much more probable than those far from the center.
+
+
+\subsection{Entropy Changes}
+
+Using Boltzmann's equation,
+
+\[
+S=k_B\ln\Omega
+\]
+
+the entropy difference between two macrostates is:
+
+\[
+\Delta S=S(k_1)-S(k_2)
+=k_B\ln\left(\frac{\Omega_1}{\Omega_2}\right)
+\]
+
+where $k_B=1.380649\times10^{-23}$ J/K.
+
+The calculated entropy changes are:
+
+\begin{itemize}
+    \item[(e)] 82 and 57 heads:
+    $\Delta S=-1.5519\times10^{-22}$ J/K
+
+    \item[(f)] 67 and 57 heads:
+    $\Delta S=-2.4133\times10^{-23}$ J/K
+
+    \item[(g)] 57 and 20 heads:
+    $\Delta S=+3.5628\times10^{-22}$ J/K
+\end{itemize}
+
+Entropy is maximum at $k=N/2$, where the number of microstates is largest. In (e) and (f), the entropy difference is negative because the first state has lower entropy. In (g), it is positive because the first state has higher entropy.
+
+\section{Thermodynamic implications}
+
+\paragraph{(h) Waiting time for a highly ordered state.}
+Tossing the $N=114$ coins once per second, each toss is an independent trial
+that yields exactly $k=8$ heads with probability
+\begin{equation}
+  P_8=\frac{\Omega(114,8)}{2^{114}}\approx 2.65\times10^{-23}.
+\end{equation}
+The number of tosses until the first success follows a geometric
+distribution, whose mean is $1/P_8$. The expected waiting time is therefore
+\begin{equation}
+  \langle t\rangle=\frac{1}{P_8}\,\si{s}\approx\SI{3.8e22}{s}\approx\SI{1.2e15}{years},
+\end{equation}
+about $8.7\times10^{4}$ times the age of the Universe
+($\approx\SI{4.35e17}{s}$). The result was computed in log-space,
+$\log_{10}\langle t\rangle=(N\ln2-\ln\Omega)/\ln10$, and checked against exact
+integer arithmetic (relative agreement better than $10^{-12}$).
+
+\paragraph{(i) Likelihood ratio.}
+Since the factor $2^{N}$ cancels,
+\begin{equation}
+  \frac{P_{N/2}}{P_{N/2\pm10}}=\frac{\Omega(114,57)}{\Omega(114,67)}\approx 5.74 .
+\end{equation}
+By symmetry, $\Omega(N,N/2+10)=\Omega(N,N/2-10)$, so the result is the same
+for $N/2+10$ and $N/2-10$ heads. The ratio agrees with the Gaussian estimate
+$e^{2\cdot10^{2}/N}\approx5.78$.
+
+\paragraph{(j) The Second Law of Thermodynamics.}
+None of the results contradicts the Second Law, because in statistical
+mechanics it is a statement about probabilities, not a strict prohibition.
+All $2^{N}$ microstates are equally likely, so a macrostate is observed with a
+probability proportional to its multiplicity. Using $S=k_B\ln\Omega$, the
+relative probability of two macrostates is
+\begin{equation}
+  \frac{P(k_1)}{P(k_2)}=\frac{\Omega(k_1)}{\Omega(k_2)}=e^{\Delta S/k_B}.
+\end{equation}
+States of lower entropy are therefore possible but exponentially unlikely.
+For example, moving from the maximum-disorder state $k=57$ to the ordered
+state $k=20$ ($\Delta S=-25.8\,k_B$) has a relative probability
+$e^{-25.8}\approx6\times10^{-12}$. For a small system such fluctuations are
+observable (with $N=7$, the state $k=0$ appears once every 128 tosses), but
+the system spends almost all of its time near $k=N/2$ simply because those
+macrostates contain almost all of the microstates. This is the statistical
+origin of the Second Law.
+
+\paragraph{(k) Macroscopic limit, $N\sim10^{23}$.}
+For such $N$ the direct difference of $\ln\Gamma$ functions loses all
+precision ($\ln\Gamma(10^{23})\sim5\times10^{24}$ while the results we need
+are of order unity), so we used Stirling's approximation,
+$\ln\Omega(N,N/2+x)\simeq N\ln2-\tfrac12\ln(\pi N/2)-2x^{2}/N$, and, for small
+$k$, $\ln\Omega\simeq k\ln N-\ln k!$. The distribution becomes a Gaussian of
+width $\sigma=\sqrt N/2\approx1.6\times10^{11}$ coins, but of relative width
+$\sigma/\mu=1/\sqrt N\approx3\times10^{-12}$. Re-evaluating (a)--(j):
+\begin{itemize}
+  \item (a), (h): $P_{30}\approx P_8\approx10^{-3.0\times10^{22}}$; the waiting
+        time $10^{3.0\times10^{22}}\,\si{s}$ is infinite for any practical purpose.
+  \item (b): $P_{N/2}\approx\sqrt{2/(\pi N)}\approx2.5\times10^{-12}$; even the most
+        probable single macrostate is unlikely, because about $10^{11}$
+        macrostates around $N/2$ are almost equally probable.
+  \item (c), (d): windows of $\pm10$ or $\pm20$ coins are negligible compared with
+        $\sigma$ ($\Delta P\approx5\times10^{-11}$ and $1\times10^{-10}$), but any
+        window of fixed \emph{relative} width (e.g.\ $k/N\in[0.4999,0.5001]$)
+        contains the whole probability: the measured fraction of heads is
+        always $1/2$.
+  \item (e), (f): $\Delta S/k_B\approx-2x^{2}/N$ gives $-1.3\times10^{-20}$ and
+        $-2\times10^{-21}$: fluctuations of a fixed number of coins are
+        thermodynamically invisible.
+  \item (g): $\Delta S\approx N k_B\ln2\approx\SI{0.96}{J/K}$, a macroscopic entropy.
+  \item (i): $P_{N/2}/P_{N/2\pm10}-1\approx2\times10^{-21}$; neighbouring
+        macrostates are equally likely.
+  \item (j): a macroscopic decrease of entropy has a probability of order
+        $e^{-10^{23}}$, so the Second Law becomes, in practice, an exact law.
+\end{itemize}
+
+\end{document}
