@@ -1,1 +1,233 @@
+\documentclass[12pt,a4paper]{article}
 
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+
+
+\begin{document}
+
+
+
+\section{Enumeration of Microstates}
+
+\subsection{Enumeration of All Microstates for $N=7$}
+
+A microstates describes one particular configuration of the N coins, taking into account that each coin has 2 possibilities, Heads (H) and Tails (T) the total number of possible microstates for a system  of N coins is:
+
+\begin{equation}
+    \Omega_{\mathrm{total}} = 2^N .
+\end{equation}
+
+For the case of $N=7$, each microstate is a string of seven letters, H or T. And the total number of microstates is therefore:
+\[
+    \Omega_{\text{total}} = 2^7 = 128.
+\]
+
+
+
+The microstates are grouped according to the number of heads,$k$. The number of configurations containing exactly
+$k$ heads is given by the binomial coefficient
+
+\begin{equation}
+    \Omega(7,k) = \binom{7}{k}
+    = \frac{7!}{k!(7-k)!}.
+\end{equation}
+
+The following table shows all 128 possible microstates, grouped according to their number of heads. It was obtained with the code implemented in Python.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{c X}
+\toprule
+\textbf{Number of heads ($k$)}
+&
+\textbf{Microstates}
+\\
+\midrule
+
+0 &
+\texttt{TTTTTTT}
+\\
+
+1 &
+\texttt{TTTTTTH}, \texttt{TTTTTHT}, \texttt{TTTTHTT},
+\texttt{TTTHTTT}, \texttt{TTHTTTT}, \texttt{THTTTTT},
+\texttt{HTTTTTT}
+\\
+
+2 &
+\texttt{TTTTTHH}, \texttt{TTTTHTH}, \texttt{TTTTHHT},
+\texttt{TTTHTTH}, \texttt{TTTHTHT}, \texttt{TTTHHTT},
+\texttt{TTHTTTH}, \texttt{TTHTTHT}, \texttt{TTHTHTT},
+\texttt{TTHHTTT}, \texttt{THTTTTH}, \texttt{THTTTHT},
+\texttt{THTTHTT}, \texttt{THTHTTT}, \texttt{THHTTTT},
+\texttt{HTTTTTH}, \texttt{HTTTTHT}, \texttt{HTTTHTT},
+\texttt{HTTHTTT}, \texttt{HTHTTTT}, \texttt{HHTTTTT}
+\\
+
+3 &
+\texttt{TTTTHHH}, \texttt{TTTHTHH}, \texttt{TTTHHTH},
+\texttt{TTTHHHT}, \texttt{TTHTTHH}, \texttt{TTHTHTH},
+\texttt{TTHTHHT}, \texttt{TTHHTTH}, \texttt{TTHHTHT},
+\texttt{TTHHHTT}, \texttt{THTTTHH}, \texttt{THTTHTH},
+\texttt{THTTHHT}, \texttt{THTHTTH}, \texttt{THTHTHT},
+\texttt{THTHHTT}, \texttt{THHTTTH}, \texttt{THHTTHT},
+\texttt{THHTHTT}, \texttt{THHHTTT}, \texttt{HTTTTHH},
+\texttt{HTTTHTH}, \texttt{HTTTHHT}, \texttt{HTTHTTH},
+\texttt{HTTHTHT}, \texttt{HTTHHTT}, \texttt{HTHTTTH},
+\texttt{HTHTTHT}, \texttt{HTHTHTT}, \texttt{HTHHTTT},
+\texttt{HHTTTTH}, \texttt{HHTTTHT}, \texttt{HHTTHTT},
+\texttt{HHTHTTT}, \texttt{HHHTTTT}
+\\
+
+4 &
+\texttt{TTTHHHH}, \texttt{TTHTHHH}, \texttt{TTHHTHH},
+\texttt{TTHHHTH}, \texttt{TTHHHHT}, \texttt{THTTHHH},
+\texttt{THTHTHH}, \texttt{THTHHTH}, \texttt{THTHHHT},
+\texttt{THHTTHH}, \texttt{THHTHTH}, \texttt{THHTHHT},
+\texttt{THHHTTH}, \texttt{THHHTHT}, \texttt{THHHHTT},
+\texttt{HTTTHHH}, \texttt{HTTHTHH}, \texttt{HTTHHTH},
+\texttt{HTTHHHT}, \texttt{HTHTTHH}, \texttt{HTHTHTH},
+\texttt{HTHTHHT}, \texttt{HTHHTTH}, \texttt{HTHHTHT},
+\texttt{HTHHHTT}, \texttt{HHTTTHH}, \texttt{HHTTHTH},
+\texttt{HHTTHHT}, \texttt{HHTHTTH}, \texttt{HHTHTHT},
+\texttt{HHTHHTT}, \texttt{HHHTTTH}, \texttt{HHHTTHT},
+\texttt{HHHTHTT}, \texttt{HHHHTTT}
+\\
+
+5 &
+\texttt{TTHHHHH}, \texttt{THTHHHH}, \texttt{THHTHHH},
+\texttt{THHHTHH}, \texttt{THHHHTH}, \texttt{THHHHHT},
+\texttt{HTTHHHH}, \texttt{HTHTHHH}, \texttt{HTHHTHH},
+\texttt{HTHHHTH}, \texttt{HTHHHHT}, \texttt{HHTTHHH},
+\texttt{HHTHTHH}, \texttt{HHTHHTH}, \texttt{HHTHHHT},
+\texttt{HHHTTHH}, \texttt{HHHTHTH}, \texttt{HHHTHHT},
+\texttt{HHHHTTH}, \texttt{HHHHTHT}, \texttt{HHHHHTT}
+\\
+
+6 &
+\texttt{THHHHHH}, \texttt{HTHHHHH}, \texttt{HHTHHHH},
+\texttt{HHHTHHH}, \texttt{HHHHTHH}, \texttt{HHHHHTH},
+\texttt{HHHHHHT}
+\\
+
+7 &
+\texttt{HHHHHHH}
+\\
+
+\bottomrule
+\end{tabularx}
+\caption{All 128 microstates for a system of seven coins, grouped by
+the number of heads.}
+\label{tab:microstates_N7}
+\end{table}
+
+
+The number of microstates in each group is summarized in
+Table~\ref{tab:microstates}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\toprule
+Number of heads ($k$) & Number of microstates ($\Omega(7,k)$) \\
+\midrule
+0 & 1 \\
+1 & 7 \\
+2 & 21 \\
+3 & 35 \\
+4 & 35 \\
+5 & 21 \\
+6 & 7 \\
+7 & 1 \\
+\midrule
+Total & 128 \\
+\bottomrule
+\end{tabular}
+\caption{Number of microstates for each possible number of heads
+in a system of seven coins.}
+\label{tab:microstates}
+\end{table}
+
+The number of microstates corresponding to each number of heads, calculated using the binomial coeffciecint matches the values obtained from the code.
+
+\begin{equation}
+\sum_{k=0}^{7}\binom{7}{k}
+=1+7+21+35+35+21+7+1
+=128=2^7.
+\end{equation}
+
+This confirms that all possible microstates have been enumerated
+exactly once, so the code is correct.
+It is important that the distribution is symmetric so the number of configurations with $k$ heads is equal to the number
+with $7-k$ heads.
+
+\subsection{Computational Limits of Microstate Enumeration}
+
+The target of this part is to determine the largest number
+of coins for which all possible microstates can be generated and stored in less than five minutes.
+
+The total number of microstates increases exponentially with
+the number of coins:
+
+\begin{equation}
+    \Omega_{\mathrm{total}}(N)=2^N.
+\end{equation}
+
+
+\subsubsection*{Methodology}
+
+For each value of $N$, the program generates all possible binary
+configurations and stores them in a Python list. 
+To evaluate the performance of the program it was used the function \texttt{time.perf\_counter()} to measure execution time , while memory consumption was monitored using the \texttt{tracemalloc}.
+
+\subsubsection*{Results}
+
+% In the preamble: \usepackage{booktabs}
+\begin{table}[htbp]
+  \centering
+  
+  \label{tab:enumeration}
+  \begin{tabular}{rrrr}
+    \toprule
+    $N$ & Microstates ($2^N$) & Time (s) & Peak memory (MB) \\
+    \midrule
+    20 & 1\,048\,576   & 0.745   & 42.0    \\
+    21 & 2\,097\,152   & 1.587   & 80.5    \\
+    22 & 4\,194\,304   & 2.982   & 161.2   \\
+    23 & 8\,388\,608   & 5.854   & 323.3   \\
+    24 & 16\,777\,216  & 11.889  & 648.2   \\
+    25 & 33\,554\,432  & 24.054  & 1300.1  \\
+    26 & 67\,108\,864  & 56.867  & 2607.5  \\
+    27 & 134\,217\,728 & 150.249 & 5230.1  \\
+    28 & 268\,435\,456 & 367.817 & 10491.1 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Wall-clock time and peak memory for full enumeration of the $2^N$ microstates.
+  The 5-minute limit is exceeded at $N=28$.}
+\end{table}
+
+For $N=27$, the program generated 134217728 microstates in
+approximately 150'249 seconds, which is less than the five-minute
+limit, and it consumed 5230 MB.
+For $N=28$, it exceeds the
+time limit of 5 minutes (=300 s).
+Therefore the maximum number of coins that could be completely enumerated within 5 minutes and with this program is 27.
+
+However, it is important the fact that when the same measurement was carried out without tracking the memory used, the highest N obtain within the 5 minutes was higher so, tracking the memory consumes time.
+
+\end{document}
